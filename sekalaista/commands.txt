@@ -1,0 +1,6 @@
+//Find devices connected to your network
+sudo nmap -sP -n -oN scan.txt 192.xxx.xxx.xxx/xx
+
+//Only get the mac adresses and output them into a file
+grep -E -o '[[:xdigit:]]{2}(:[[:xdigit:]]{2}){5}' scan.txt > mac.txt
+
