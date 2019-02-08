@@ -10,7 +10,7 @@ A blog exists for the project at https://ruatwork.wordpress.com/
 
 ## Miscellaneous
 
-The project is developed by three students: Roope Varttila, Jaakko Veijonen and Vili Viita.
+The project is developed by three students from Haaga-Helia University of Applied Sciences: Roope Varttila, Jaakko Veijonen and Vili Viita.
 
 It is planned to test the project in real work environments during Spring 2019.
 
