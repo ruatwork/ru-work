@@ -2,7 +2,7 @@
 
 #Does nothing currently
 
-mac = "kissa"
+mas = "kissa"
 
 mad = "koira"
 
@@ -13,13 +13,12 @@ filu = open("mac.txt", "r")
 if filu.mode == 'r':
 
         filu = filu.read()
+	print(filu)
 
-if "mac" in "mac.txt":
+if "mas" in "filu":
         print 'gotem'
-
-if "mad" in "mac.txt":
-        print 'gotem again'
 
 if "sad" in "mac.txt":
         print 'gotem once more'
 
+print "Hello world!"
