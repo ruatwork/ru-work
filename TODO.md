@@ -12,6 +12,7 @@
 
 ### Steps:
 1. Previous program needs to note, if a MAC address is missing from the list, and print something ("No")
+2. Nmap's scan done every 1-5min in cron
 
 
 ## Third program needed
