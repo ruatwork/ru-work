@@ -1,0 +1,2 @@
+eka ohjelma kirjoittaa
+/n toka ohjelma kirjoittaa
