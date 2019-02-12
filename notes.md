@@ -10,4 +10,8 @@ https://mariadb.com/kb/en/library/grant/
 https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/
   
 ###Reference for Python and MySQL Database(might be useful)  
-https://www.youtube.com/watch?v=lhU2OZCKXhQ
+https://www.youtube.com/watch?v=lhU2OZCKXhQ  
+  
+https://www.raspberrypi.org/forums/viewtopic.php?t=165213  
+  
+  
