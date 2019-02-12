@@ -6,7 +6,7 @@ import codecs
 
 # this variable would be the mac
 
-muuttuja = 'kissa'
+muuttuja = 'koira'
 
 # reading the file
 
@@ -15,5 +15,7 @@ with open('mac.txt', 'rb') as fp:
 
 # do something if variable is found in the file
 
+print (v)
+
 if 'muuttuja' in 'v':
-	print (gotem)
+	print ('muuttuja')
