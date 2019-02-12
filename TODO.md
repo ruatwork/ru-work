@@ -3,8 +3,8 @@
 ## First program needed
 
 ### Steps:
-DONE 1. Nmap prints the MAC addresses found on the network
-DONE 2. Use grep to make a clean list of the MAC addresses
+DONE 1. Nmap prints the MAC addresses found on the network  
+DONE 2. Use grep to make a clean list of the MAC addresses  
 3. if a MAC address is missing from the list, print something ("No")
 
 
