@@ -7,6 +7,8 @@ DONE 1. Nmap prints the MAC addresses found on the network
 DONE 2. Use grep to make a clean list of the MAC addresses  
 3. if a MAC address is missing from the list, print something ("No")
 
+### Another program?
+Somehow the program needs to know when the users status changes from "connected" to "not connected" and marking it just once into the actual time managent database.
 
 ## Second program needed
 
