@@ -3,15 +3,15 @@
 ## First program needed
 
 ### Steps:
-1. Nmap prints the MAC addresses found on the network
-2. Use grep to make a clean list of the MAC addresses
-3. Python program prints "Yes" if a predefined MAC address is found on the clean list
+DONE 1. Nmap prints the MAC addresses found on the network
+DONE 2. Use grep to make a clean list of the MAC addresses
+3. if a MAC address is missing from the list, print something ("No")
 
 
 ## Second program needed
 
 ### Steps:
-1. Previous program needs to note, if a MAC address is missing from the list, and print something ("No")
+1. Acquiring addresses from an external text file
 2. Nmap's scan done every 1-5min in cron
 
 
