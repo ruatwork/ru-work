@@ -2,8 +2,6 @@
 
 # testing out the if something in a file do something
 
-import codecs
-
 # this variable would be the mac
 
 muuttuja = "koira"
