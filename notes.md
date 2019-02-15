@@ -16,3 +16,10 @@ https://www.raspberrypi.org/forums/viewtopic.php?t=165213
 
 ### Running cron as root
 Type "#login as root" before the job - http://man7.org/linux/man-pages/man5/crontab.5.html#EXAMPLE_CRON_FILE
+
+
+## Problems?
+- Best way to determine whether you're at work - some calculations in PHP(?) based on last timestamp data?
+- data to be sent to mariaDB: MAC address, timestamp, at work or not, possibly employee name?
+
+
