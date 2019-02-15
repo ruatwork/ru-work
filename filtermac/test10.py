@@ -18,14 +18,16 @@ checklist = ['11AA','33CC','55EE','77GG']
 
 # reading the file
 
-with open('mac2.txt', 'r') as cronlist:
+with open("mac2.txt", "r") as cronlist:
 	list2 = []
 	for item in cronlist:
 		number  = 0
 		while number < 1:
-			list2.append(item)
+			list2.append(item + str(number))
 			number += 1
 	print (list2)
+	print (checklist)
+
 #	maclist = cronlist.read()
 
 
