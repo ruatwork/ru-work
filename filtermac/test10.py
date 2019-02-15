@@ -14,19 +14,29 @@
 
 #olematon = "77GG"
 
-checklist = ['11AA','33CC','55EE','77GG']
+#checklist = ['11AA','33CC','55EE','77GG']
+
+with open("checklist.txt", "r") as macs:
+        print [item.strip()
+                for item in macs
+                for number in xrange(1)]
+
+with open("mac2.txt", "r") as cronlist:
+	print [item.strip()
+		for item in cronlist
+		for number in xrange(1)]
 
 # reading the file
 
-with open("mac2.txt", "r") as cronlist:
-	list2 = []
-	for item in cronlist:
-		number  = 0
-		while number < 1:
-			list2.append(item + str(number))
-			number += 1
-	print (list2)
-	print (checklist)
+#with open("mac2.txt", "r") as cronlist:
+#	list2 = []
+#	for item in cronlist:
+#		number  = 0
+#		while number < 1:
+#			list2.append(item + str(number))
+#			number += 1
+#	print (list2)
+#	print (checklist)
 
 #	maclist = cronlist.read()
 
