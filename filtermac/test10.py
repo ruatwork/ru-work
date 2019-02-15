@@ -17,14 +17,13 @@
 #checklist = ['11AA','33CC','55EE','77GG']
 
 with open("checklist.txt", "r") as macs:
-        print [item.strip()
-                for item in macs
-                for number in xrange(1)]
+	print [item.strip()
+		for item in macs]
 
 with open("mac2.txt", "r") as cronlist:
 	print [item.strip()
-		for item in cronlist
-		for number in xrange(1)]
+		for item in cronlist]
+print cronlist
 
 # reading the file
 
