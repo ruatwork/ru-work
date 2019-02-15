@@ -15,3 +15,8 @@ https://www.youtube.com/watch?v=lhU2OZCKXhQ
 https://www.raspberrypi.org/forums/viewtopic.php?t=165213  
   
   
+
+## Problems?
+- Best way to determine whether you're at work - some calculations in PHP(?) based on last timestamp data?  
+- data to be sent to mariaDB: MAC address, timestamp, at work or not, possibly employee name?  
+
