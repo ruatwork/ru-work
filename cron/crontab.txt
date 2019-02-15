@@ -4,4 +4,8 @@
 
 # Not working: where to put the scripts (just for testing purposes)
 
-* * * * * /usr/bin/ohjelma1.sh ; /usr/bin/ohjelma2.sh
+# chmod +x for both so cron can run them
+
+* * * * * /tmp/testing/ohjelma1.sh ; /tmp/testing/ohjelma2.sh
+
+# runs every minute
