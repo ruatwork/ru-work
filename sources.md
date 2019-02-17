@@ -5,3 +5,5 @@ https://nmap.org/book/output-formats-xml-with-perl.html
 https://sourceforge.net/projects/nmapsql/  
 https://stackoverflow.com/questions/24785415/using-python-nmap-module-to-scan-hosts-generated-from-a-previous-scan  
 https://stackoverflow.com/questions/22677853/python-import-text-file-as-list-to-iterate  
+https://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python  
+https://stackoverflow.com/questions/43991057/typeerror-set-object-does-not-support-indexing  
