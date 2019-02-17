@@ -12,8 +12,10 @@ Steps:
 	3. Make the script executable
 
 		chmod +x scan.sh
+		
+	4. Edit checklist.txt with all the MAC addresses you wish to track
 
-	4. Edit your cron-file to run the script and the program
+	5. Edit your cron-file to run the script and the program
 		
 		sudo crontab -e
 
