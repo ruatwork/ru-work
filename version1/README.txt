@@ -4,18 +4,14 @@ Steps:
 		
 		sudo apt-get install nmap python
 
-	### Be cautious when using nmap, check the ip multiple times.
+	### Be cautious when using nmap, check the ip multiple times to be sure of it.
 	### Only scan networks you know you have permission to scan.
+	### RU@work is not liable for any illegal or wrong use of nmap.
 	### This program does not scan open ports.
-
-	2. Move the script and the program into /tmp
-
-		mv scan.sh /tmp
-		mv pythonprogram.py /tmp
 
 	3. Make the script executable
 
-		chmod +x /tmp/scan.sh
+		chmod +x scan.sh
 
 	4. Edit your cron-file to run the script and the program
 		
