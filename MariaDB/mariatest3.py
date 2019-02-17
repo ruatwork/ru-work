@@ -14,11 +14,11 @@ cursor = mariadb_connection.cursor()
 #for name, price in cursor:
 #	print("Name: {}, Address: {}").format(name,address)
 
-# Insert a new row to a table
-#try:
-#	cursor.execute("insert into your_table (name,address) values (%s,%s)", ('Turo Takkanen','445566'))
-#except mariadb.Error as error:
-#	print("Error: {}".format(error))
+ Insert a new row to a table
+try:
+	cursor.execute("insert into your_table (name,address) values (%s,%s)", ('Turo Takkanen','445566'))
+except mariadb.Error as error:
+	print("Error: {}".format(error))
 
 # Commit changes to table, autocommit is disabled by default
 mariadb_connection.commit()
