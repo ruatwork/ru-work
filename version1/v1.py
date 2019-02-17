@@ -20,8 +20,8 @@ print ('MAC addresses at work: ' + str(present))
 
 absent = set(checklist) - set(present)
 
+# export missing MAC addresses to absent.txt
 with open('absent.txt', 'w') as abstext:
 	for i in absent:
 		abstext.write("%s\n" % i)
 		print('NOT at work: ' + str(i))
-#print (set(checklist) - set(present))
