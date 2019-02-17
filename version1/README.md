@@ -2,9 +2,9 @@
 
 ## What does it do?
 
-This is the first version of RU@work. This program is used to track the work time of employees through Wi-Fi.
+This is the first version of RU@work.
 
-Currently RU@work saves the present/missing MAC addresses locally. In the future MariaDB integration will be present.
+Currently RU@work saves the present/missing MAC addresses locally. In the future MariaDB integration will be present with timestamps.
 
 ## How do I do it?
 		
