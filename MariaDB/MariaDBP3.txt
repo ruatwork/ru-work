@@ -1,0 +1,34 @@
+
+## Sources: https://mariadb.com/resources/blog/how-to-connect-python-programs-to-mariadb/  
+https://mariadb.com/kb/en/library/configuring-mariadb-for-remote-client-access/
+https://mariadb.com/kb/en/library/configuring-mariadb-with-option-files/
+## Connecting to a database locally:
+Create user 'user' identified by 'your_password';
+create database 'testi';
+grant all on testi.* to user@localhost identified by 'your_pw'
+mariadb -u user -p
+
+create table 'test' (id int auto_increment primary key, name varchar(1024), price float);
+show tables;
+select * from test;
+insert into test(name, price) values ("Banaani", 3.4);
+insert into test(name, price) values ("Suklaa", 2.5);
+select * from test;
+
+## Needed for connectiong to a database on a separate server
+sudo apt install -y python3-dev
+sudo apt install -y python3-pip
+sudo apt install mysql-connector-python3
+pip3 search mysql-connector | grep --color mysql-connector-python
+pip3 install mysql-connector-python
+
+## Configuring MariaDB server:
+
+/etc/mysql/mariadb.conf.d$ nano 50-server.cnf
+comment out bind-address: 127.0.0.1 with #
+check port: default 3306
+
+## Grant access to a user for a database:
+grant all privileges on *.* to user@your_ip identified by 'pw' with grant options;
+
+## Should work now
