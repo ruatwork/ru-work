@@ -9,11 +9,21 @@
 - RU@work is not liable for any illegal or wrong use of nmap.
 - This program does not scan open ports.
 
-2. Make the script executable
+2. Edit checklist.txt with all the MAC addresses you wish to track, each address in its own row.
+
+3. Make the script executable
 
 		chmod +x scan.sh
 		
-3. Edit checklist.txt with all the MAC addresses you wish to track, each address in its own row.
+
+Run the programs with
+
+		bash scan.sh
+
+
+### OPTIONAL:
+
+If you wish to automate the program to run in set intervals, use cron.
 
 4. Edit your cron-file to run the script and the program
 		
