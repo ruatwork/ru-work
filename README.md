@@ -2,7 +2,7 @@
 This repository is for the "Monialaprojekti" course in Haaga-Helia University of Applied Sciences.
 
 ## Goal of the project
-The goal of the project is to create a work time tracking system that uses Wi-Fi connectivity to automatically mark workers as present or absent. The project will mainly be written in Python, and will use MariaDB to its advantage.
+The goal of the project is to create a work time tracking system that uses Wi-Fi connectivity to automatically mark employees as present or absent. The project will mainly be written in Python, and will use MariaDB to its advantage.
 
 Further documentation will be written as the project progresses.
 
