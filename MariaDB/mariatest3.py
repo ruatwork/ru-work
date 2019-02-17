@@ -14,7 +14,7 @@ cursor = mariadb_connection.cursor()
 #for name, price in cursor:
 #	print("Name: {}, Address: {}").format(name,address)
 
- Insert a new row to a table
+# Insert a new row to a table
 try:
 	cursor.execute("insert into your_table (name,address) values (%s,%s)", ('Turo Takkanen','445566'))
 except mariadb.Error as error:
