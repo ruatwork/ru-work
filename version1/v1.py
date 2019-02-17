@@ -4,12 +4,12 @@
 
 
 # open and make a list of the file containing the MAC addresses of all employees
-with open("checklist.txt", "r") as alltext:
+with open("/tmp/checklist.txt", "r") as alltext:
 	checklist = [item.strip()
 		for item in alltext]
 
 # open and make a list of the file containing current connected MAC addresses
-with open("present.txt", "r") as nmaptext:
+with open("/tmp/present.txt", "r") as nmaptext:
 	present = [item.strip()
 		for item in nmaptext]
 
@@ -20,7 +20,7 @@ print (present)
 
 absent = set(checklist) - set(present)
 
-with open('absent.txt', 'w') as abstext:
+with open('/tmp/absent.txt', 'w') as abstext:
 	for i in absent:
 		abstext.write("%s\n" % i)
 		print(i)
