@@ -7,7 +7,7 @@ import mysql.connector as mariadb
 mariadb_connection = mariadb.connect(host='server_ip', user='your_user', password='your_pw', database='your_database')
 cursor = mariadb_connection.cursor()
 
-# Retrieve information from database
+# Retrieve information from database (this part does not currently work over network, but works locally just fine)
 #some_name = 'Seppo'
 #cursor.execute("select name,address from your_table where name=%s", (some_name,))
 
