@@ -6,7 +6,7 @@
 
 - Be cautious when using nmap, check the ip multiple times to be sure of it.
 - Only scan networks you know you have permission to scan.
-- RU@work is not liable for any illegal or wrong use of nmap.
+- RU@work is not liable for any illegal or wrong use of this program or nmap.
 - This program does not scan open ports.
 
 2. Edit checklist.txt with all the MAC addresses you wish to track, each address in its own row.
