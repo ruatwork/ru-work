@@ -14,12 +14,10 @@
 3. Make the script executable
 
 		chmod +x scan.sh
-		
 
 Run the programs with
 
 		bash scan.sh
-
 
 ### OPTIONAL:
 
