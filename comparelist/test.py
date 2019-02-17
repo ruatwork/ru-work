@@ -18,4 +18,3 @@ print present
 
 # compare checklist and present list - those in present are at work, those missing are not
 
-
