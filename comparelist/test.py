@@ -9,9 +9,9 @@ with open("checklist.txt", "r") as alltext:
 		for item in alltext]
 
 # open and make a list of the file containing current connected MAC addresses
-with open("present.txt", "r") as crontext:
+with open("present.txt", "r") as nmaptext:
 	present = [item.strip()
-		for item in crontext]
+		for item in nmaptext]
 
 print (checklist)
 print (present)
