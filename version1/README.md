@@ -1,6 +1,6 @@
-## Install requirements
+## README
 		
-1.
+1. Install requirements
 
 		sudo apt-get install nmap python
 
