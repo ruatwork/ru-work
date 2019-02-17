@@ -4,7 +4,7 @@
 import mysql.connector as mariadb
 
 # Connect to MariaDB
-mariadb_connection = mariadb.connect(host='your_server_ip', user='your_user', password='your_pw', database='your_database')
+mariadb_connection = mariadb.connect(host='188.166.77.172', user='admin', password='TeroNot@Toissa', database='testi')
 cursor = mariadb_connection.cursor()
 
 # Retrieve information from database
