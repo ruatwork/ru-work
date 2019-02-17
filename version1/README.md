@@ -1,4 +1,12 @@
-## README
+# README
+
+## What does it do?
+
+This is the first version of RU@work. This program is used to track the work time of employees through Wi-Fi.
+
+Currently RU@work saves the present/missing MAC addresses locally. In the future MariaDB integration will be present.
+
+## How do I do it?
 		
 1. Install requirements
 
@@ -15,9 +23,11 @@
 
 		chmod +x scan.sh
 
-Run the programs with
+Run the program with
 
 		bash scan.sh
+		
+After running, the MAC addresses that are not connected are saved in absent.txt, while those that are are saved in present.txt.
 
 ### OPTIONAL:
 
