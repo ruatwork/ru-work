@@ -15,11 +15,14 @@ https://www.youtube.com/watch?v=lhU2OZCKXhQ
 https://www.raspberrypi.org/forums/viewtopic.php?t=165213  
 
 ### Running cron as root
-Type "#login as root" before the job - http://man7.org/linux/man-pages/man5/crontab.5.html#EXAMPLE_CRON_FILE
-
+Just remember to use sudo
 
 ## Problems?
 - Best way to determine whether you're at work - some calculations in PHP(?) based on last timestamp data?
 - data to be sent to mariaDB: MAC address, timestamp, at work or not, possibly employee name?
 
-
+## Calculations for server usage and resource planning
+Our test database was 0.03 MB and had one table with 9 rows.
+The program is planned to make 288 scans per day, and if we use the same size average per row it comes out as 1MB per day.
+Our current server resources are 1TB of data transfer/month and we've allocated atleast 10GB for the database.
+In other words the cheapest vps from DigitalOcean should be more than enough for the project!
