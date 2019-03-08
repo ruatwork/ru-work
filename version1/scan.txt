@@ -1,0 +1,4 @@
+# Nmap 7.60 scan initiated Sun Mar  3 09:56:39 2019 as: nmap -sP -n -oN scan.txt 111.222.333.444/mask
+Unable to split netmask from target expression: "111.222.333.444/mask"
+WARNING: No targets were specified, so 0 hosts scanned.
+# Nmap done at Sun Mar  3 09:56:39 2019 -- 0 IP addresses (0 hosts up) scanned in 0.00 seconds
