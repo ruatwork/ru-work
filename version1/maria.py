@@ -4,7 +4,7 @@
 
 #WHAT WILL THIS DO:
 
-#checklist.txt, mariadb.py, verrataan present.txt:hen
+# compare checklist MAC addresses to the currently connected present.txt, then send data to database accordingly
 
 #while currentrow <= lastrow
 #     if checklist's MAC is in present (readlines)
@@ -34,8 +34,13 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 	currentrow += 1 #proceed to next row
 
+# while we're not past the last row:
+	# check if currentrow's item is in present.txt
+		# if it is, and the last entry in the database is not "present"
+			# write to the database that the MAC is present. MAC, present, datetime
+			# move to next currentrow
 
-
-# is it wiser to make checklist.txt to a python list and use a for list item loop to cycle
-# through the items to check whether they're in present.txt,
-# or to read checklist.txt and check each line individually?
+	# if however currentrow's item is NOT in present.txt
+		# and database's last entry is not "absent"
+			# write to the database that the MAC is absent. MAC, absent, datetime
+			# move to next currentrow
