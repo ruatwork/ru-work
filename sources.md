@@ -7,3 +7,5 @@ https://stackoverflow.com/questions/24785415/using-python-nmap-module-to-scan-ho
 https://stackoverflow.com/questions/22677853/python-import-text-file-as-list-to-iterate  
 https://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python  
 https://stackoverflow.com/questions/43991057/typeerror-set-object-does-not-support-indexing  
+version1/maria.py https://stackoverflow.com/questions/17795039/counting-rows-from-a-text-file  
+version1/maria.py https://www.quora.com/How-do-you-print-objects-in-specific-index-numbers-in-lists-in-python  
