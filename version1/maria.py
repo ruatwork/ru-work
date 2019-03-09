@@ -34,7 +34,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 	currentrow += 1 #proceed to next row
 
-#
 # while we're not past the last row:
 	# check if currentrow's item is in present.txt
 		# if it is, and the last entry in the database is not "present"
