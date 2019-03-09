@@ -8,4 +8,6 @@ https://stackoverflow.com/questions/22677853/python-import-text-file-as-list-to-
 https://stackoverflow.com/questions/899103/writing-a-list-to-a-file-with-python  
 https://stackoverflow.com/questions/43991057/typeerror-set-object-does-not-support-indexing  
 version1/maria.py https://stackoverflow.com/questions/17795039/counting-rows-from-a-text-file  
+version1/maria.py https://stackoverflow.com/questions/11328940/check-if-list-item-contains-items-from-another-list  
 version1/maria.py https://www.quora.com/How-do-you-print-objects-in-specific-index-numbers-in-lists-in-python  
+various_tests/MariaDB/mariaprint.py http://www.mysqltutorial.org/python-connecting-mysql-databases/  
