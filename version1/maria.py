@@ -20,19 +20,30 @@
 
 lastrow = (len(list(open("checklist.txt")))) #get the number of rows in checklist.txt
 currentrow = 0 #start from first row
-# checkmac = 'foo'
 
 with open("checklist.txt", "r") as checktext: # make checklist.txt into list
 	checklist = [item.strip()
 		for item in checktext]
 
+with open("present.txt", "r") as presenttext:
+	presentlist = [item.strip()
+		for item in presenttext]
+
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
 
 while (currentrow <= lastrow -1): #while we're not past the last row
-	print (currentrow)
-	print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
-	currentrow += 1 #proceed to next row
+	if any(map(lambda each: each in checklist[currentrow], presentlist)):
+		print (currentrow)
+		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
+		print ("present")
+		currentrow += 1 #proceed to next row
+
+	else:
+		print (currentrow)
+		print (checklist[currentrow])
+		print ("absent")
+		currentrow += 1
 
 # while we're not past the last row:
 	# check if currentrow's item is in present.txt
@@ -40,7 +51,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 			# write to the database that the MAC is present. MAC, present, datetime
 			# move to next currentrow
 
-	# if however currentrow's item is NOT in present.txt
+	# else if however currentrow's item is NOT in present.txt
 		# and database's last entry is not "absent"
 			# write to the database that the MAC is absent. MAC, absent, datetime
 			# move to next currentrow
