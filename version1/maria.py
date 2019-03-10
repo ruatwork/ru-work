@@ -30,16 +30,22 @@ with open("present.txt", "r") as presenttext:
 	presentlist = [item.strip()
 		for item in presenttext]
 
+
+conn = mysql.connector.connect(host='localhost',
+database='worktime',
+user='admin',
+password='your_password')
+
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
 
 while (currentrow <= lastrow -1): #while we're not past the last row
 
 	try:
-		conn = mysql.connector.connect(host='localhost',
-					database='worktime',
-					user='admin',
-					password='your_password')
+#		conn = mysql.connector.connect(host='localhost',
+#					database='worktime',
+#					user='admin',
+#					password='Work@Hom3')
 		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1"
 		cursor = conn.cursor(buffered=True)
 		cursor.execute(sql_read)
@@ -53,7 +59,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 #		if(conn.is_connected()):
 #			conn.close()
 
-	if any(map(lambda each: each in checklist[currentrow], presentlist)) and record = 0:
+	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0,):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 		print ("present")
@@ -68,7 +74,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 
 		currentrow += 1 #proceed to next row
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and record = 1:
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
 		print (currentrow)
 		print (checklist[currentrow])
 		print ("absent")
@@ -83,9 +89,14 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 
 		currentrow += 1
 
-finally:
-	cursor.close()
-	conn.close()
+	else:
+		print("ERROR!! I am the brake :D")
+		cursor.close()
+		conn.close()
+		break
+
+cursor.close()
+conn.close()
 
 # while we're not past the last row:
 	# check if currentrow's item is in present.txt
