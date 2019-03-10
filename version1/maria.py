@@ -35,10 +35,6 @@ password='your_password')
 while (currentrow <= lastrow -1): #while we're not past the last row
 
 	try:
-#		conn = mysql.connector.connect(host='localhost',
-#					database='worktime',
-#					user='admin',
-#					password='Work@Hom3')
 		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1"
 		cursor = conn.cursor(buffered=True)
 		cursor.execute(sql_read)
