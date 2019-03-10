@@ -2,14 +2,14 @@ import mysql.connector
 from mysql.connector import Error
 try:
 	conn = mysql.connector.connect(host='localhost',
-					database='test',
-					user='your_user',
-					password='your_pw')
-	sql_Query = "SELECT present FROM test ORDER BY id DESC LIMIT 1"
+					database='worktime',
+					user='admin',
+					password='your_password')
+	sql_Query = "SELECT present FROM aa_ff_3r_11_22_33 ORDER BY id DESC LIMIT 1"
 	cursor = conn.cursor(buffered=True)
 	cursor.execute(sql_Query)
 	record = cursor.fetchone()
-	print ("Printing first record using cursor.fetchone()", record)
+	print (record)
 	cursor.close()
 except Error as e :
 	print ("Error while connecting to MySQL", e)
