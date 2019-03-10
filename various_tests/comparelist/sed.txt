@@ -1,0 +1,1 @@
+cat examplemac.txt | sed s/:/_/ | sed s/:/_/ | sed s/:/_/ | sed s/:/_/ | sed s/:/_/ > examplemacfix.txt
