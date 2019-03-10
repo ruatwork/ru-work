@@ -3,8 +3,8 @@ from mysql.connector import Error
 try:
 	conn = mysql.connector.connect(host='localhost',
 					database='test',
-					user='admin',
-					password='Work@Hom3')
+					user='your_user',
+					password='your_pw')
 	sql_Query = "SELECT present FROM test ORDER BY id DESC LIMIT 1"
 	cursor = conn.cursor(buffered=True)
 	cursor.execute(sql_Query)
