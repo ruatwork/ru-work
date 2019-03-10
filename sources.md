@@ -11,3 +11,6 @@ version1/maria.py https://stackoverflow.com/questions/17795039/counting-rows-fro
 version1/maria.py https://stackoverflow.com/questions/11328940/check-if-list-item-contains-items-from-another-list  
 version1/maria.py https://www.quora.com/How-do-you-print-objects-in-specific-index-numbers-in-lists-in-python  
 various_tests/MariaDB/mariaprint.py http://www.mysqltutorial.org/python-connecting-mysql-databases/  
+version1/mariaprint2.py https://pynative.com/python-mysql-select-query-to-fetch-data/  
+version1/mariaprint2.py https://stackoverflow.com/questions/23742208/fetch-the-last-row-of-a-cursor-with-sqlite  
+PHP login - https://johnsfreetuts.com/logintut/
