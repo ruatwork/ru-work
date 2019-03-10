@@ -16,7 +16,8 @@
 #             write to database (tableName=MAC(readlines),lastTableRowID+1, MAC, absent,datetime)
 #             currentrow += 1
 
-
+import mysql.connector
+from mysql.connector import Error
 
 lastrow = (len(list(open("checklist.txt")))) #get the number of rows in checklist.txt
 currentrow = 0 #start from first row
@@ -33,17 +34,58 @@ with open("present.txt", "r") as presenttext:
 # but the variable currentrow is used to go through the list items one by one.
 
 while (currentrow <= lastrow -1): #while we're not past the last row
-	if any(map(lambda each: each in checklist[currentrow], presentlist)):
+
+	try:
+		conn = mysql.connector.connect(host='localhost',
+					database='worktime',
+					user='admin',
+					password='your_password')
+		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1"
+		cursor = conn.cursor(buffered=True)
+		cursor.execute(sql_read)
+		record = cursor.fetchone()
+
+	except Error as e :
+		print ("Error while connecting to MySQL", e)
+
+#	finally:
+		#closing database connection.
+#		if(conn.is_connected()):
+#			conn.close()
+
+	if any(map(lambda each: each in checklist[currentrow], presentlist)) and record = 0:
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 		print ("present")
+
+		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)"
+
+		try:
+			cursor.execute(sql_present)
+		except Error as e :
+			print("Error: {}".format(error))
+		conn.commit()
+
 		currentrow += 1 #proceed to next row
 
-	else:
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and record = 1:
 		print (currentrow)
 		print (checklist[currentrow])
 		print ("absent")
+
+		sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (0)"
+
+		try:
+			cursor.execute(sql_absent)
+		except Error as e :
+			print("Error:{}".format(error))
+		conn.commit()
+
 		currentrow += 1
+
+finally:
+	cursor.close()
+	conn.close()
 
 # while we're not past the last row:
 	# check if currentrow's item is in present.txt
