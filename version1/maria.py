@@ -1,20 +1,13 @@
 #!/bin/python3
 
+# Writes new line to table anyways. Needs to only write if the value of present differs.
+
 # currently running this program prints checklist items one by one with their respective placement in the list
 
 #WHAT WILL THIS DO:
 
 # compare checklist MAC addresses to the currently connected present.txt, then send data to database accordingly
 
-#while currentrow <= lastrow
-#     if checklist's MAC is in present (readlines)
-#           and if tableLastRow != present
-#              write to database (tableName=MAC(readlines),lastTableRowID+1, MAC, present,datetime)
-#               currentrow += 1
-#     else if checklist's MAC not present (readlines)
-#         and if tableLastRow != absent
-#             write to database (tableName=MAC(readlines),lastTableRowID+1, MAC, absent,datetime)
-#             currentrow += 1
 
 import mysql.connector
 from mysql.connector import Error
@@ -54,10 +47,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-#	finally:
-		#closing database connection.
-#		if(conn.is_connected()):
-#			conn.close()
 
 	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0,):
 		print (currentrow)
