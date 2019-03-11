@@ -43,7 +43,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-
 	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0,):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
@@ -58,9 +57,10 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1 #proceed to next row
+		continue
 
 	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
-		pass
+                pass
 
 	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
 		print (currentrow)
@@ -76,9 +76,11 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1
+		continue
 
 	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,):
-		pass
+		currentrow += 1
+		continue
 
 	else:
 		print("ERROR!! I am the brake :D")
