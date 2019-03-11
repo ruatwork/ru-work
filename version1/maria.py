@@ -27,7 +27,7 @@ with open("present.txt", "r") as presenttext:
 conn = mysql.connector.connect(host='localhost',
 database='worktime',
 user='admin',
-password='your_password')
+password='your_pw')
 
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
@@ -59,6 +59,9 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 
 		currentrow += 1 #proceed to next row
 
+	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
+		pass
+
 	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
 		print (currentrow)
 		print (checklist[currentrow])
@@ -73,6 +76,9 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1
+
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,):
+		pass
 
 	else:
 		print("ERROR!! I am the brake :D")
