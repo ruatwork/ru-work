@@ -57,10 +57,12 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1 #proceed to next row
+		print (sql_present)
 		continue
 
-	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
-                pass
+#	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
+#		currentrow += 1
+#		continue
 
 	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
 		print (currentrow)
@@ -76,9 +78,10 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1
+		print (sql_absent)
 		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,):
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,) or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
 		currentrow += 1
 		continue
 
@@ -87,7 +90,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		cursor.close()
 		conn.close()
 		break
-
 cursor.close()
 conn.close()
 
