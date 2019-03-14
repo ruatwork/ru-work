@@ -39,51 +39,58 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		cursor = conn.cursor(buffered=True)
 		cursor.execute(sql_read)
 		record = cursor.fetchone()
+		print (record)
 
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0,):
-		print (currentrow)
-		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
-		print ("present")
+	if any(map(lambda each: each in checklist[currentrow], presentlist)):
+		if (record is "0,"):
+			print (currentrow)
+			print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
+			print ("present")
 
-		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)"
+			sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)"
 
-		try:
-			cursor.execute(sql_present)
-		except Error as e :
-			print("Error: {}".format(error))
-		conn.commit()
+			try:
+				cursor.execute(sql_present)
+			except Error as e :
+				print("Error: {}".format(error))
+			conn.commit()
 
-		currentrow += 1 #proceed to next row
-		print (sql_present)
-		continue
+			currentrow += 1 #proceed to next row
+			print (sql_present)
+			continue
 
-#	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
-#		currentrow += 1
-#		continue
+		elif (record is "1,"):
+			print ("no change, still present")
+			currentrow += 1
+			continue
+	else:
+		pass
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
-		print (currentrow)
-		print (checklist[currentrow])
-		print ("absent")
+	if any(map(lambda each: each not in checklist[currentrow], presentlist)):
+		if (record is "1,"):
+			print (currentrow)
+			print (checklist[currentrow])
+			print ("absent")
 
-		sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (0)"
+			sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (0)"
 
-		try:
-			cursor.execute(sql_absent)
-		except Error as e :
-			print("Error:{}".format(error))
-		conn.commit()
+			try:
+				cursor.execute(sql_absent)
+			except Error as e :
+				print("Error:{}".format(error))
+			conn.commit()
 
-		currentrow += 1
-		print (sql_absent)
-		continue
+			currentrow += 1
+			print (sql_absent)
+			continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,) or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
-		currentrow += 1
-		continue
+		elif (record is "0,"):
+			print ("no change, still absent")
+			currentrow += 1
+			continue
 
 	else:
 		print("ERROR!! I am the brake :D")
@@ -102,4 +109,4 @@ conn.close()
 	# else if however currentrow's item is NOT in present.txt
 		# and database's last entry is not "absent"
 			# write to the database that the MAC is absent. MAC, absent, datetime
-# move to next currentrow
+			# move to next currentrow
