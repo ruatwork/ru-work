@@ -38,12 +38,12 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1"
 		cursor = conn.cursor(buffered=True)
 		cursor.execute(sql_read)
-		record = cursor.fetchone()
+		record, = cursor.fetchone()
 
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0,):
+	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 		print ("present")
@@ -64,7 +64,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 #		currentrow += 1
 #		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1,):
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1):
 		print (currentrow)
 		print (checklist[currentrow])
 		print ("absent")
@@ -81,7 +81,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		print (sql_absent)
 		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0,) or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0) or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
 		currentrow += 1
 		continue
 
