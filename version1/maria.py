@@ -27,11 +27,7 @@ with open("present.txt", "r") as presenttext:
 conn = mysql.connector.connect(host='localhost',
 database='worktime',
 user='admin',
-<<<<<<< HEAD
-password='Work@Hom3')
-=======
 password='your_pw')
->>>>>>> 52ae269d7fca2880a1f558f17815283786198474
 
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
@@ -47,17 +43,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-<<<<<<< HEAD
-#	if any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0):
-#		currentrow += 1
-#		continue
-
-#	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
-#		currentrow += 1
-#		continue
-
-=======
->>>>>>> 52ae269d7fca2880a1f558f17815283786198474
 	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
@@ -74,14 +59,6 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		currentrow += 1 #proceed to next row
 		print (sql_present)
 		continue
-
-<<<<<<< HEAD
-#	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
-=======
-#	elif any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1,):
->>>>>>> 52ae269d7fca2880a1f558f17815283786198474
-#		currentrow += 1
-#		continue
 
 	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1):
 		print (currentrow)
