@@ -25,7 +25,7 @@ with open("present.txt", "r") as presenttext:
 
 
 conn = mysql.connector.connect(host='localhost',
-database='worktime',
+database='timestamp',
 user='admin',
 password='your_pw')
 
@@ -77,7 +77,9 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		print (sql_absent)
 		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0) or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
+	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0):
+	#or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
+		print ("not writing")
 		currentrow += 1
 		continue
 
@@ -85,7 +87,8 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		print("ERROR!! I am the brake :D")
 		cursor.close()
 		conn.close()
-		break
+		currentrow += 1
+		continue
 cursor.close()
 conn.close()
 
