@@ -11,6 +11,8 @@ with open("present.txt", "r") as presenttext:
 	presentlist = [item.strip()
 		for item in presenttext]
 
+	print (presentlist)
+
 while (currentrow <= lastrow -1):
 
 	if any(map(lambda each: each in checklist[currentrow], presentlist)):
