@@ -21,8 +21,10 @@ while (currentrow <= lastrow -1):
 		print ("present")
 		currentrow += 1
 		continue
-
+	
 	else:
-		print ("BorkBorkEn")
+		print (currentrow)
+		print (checklist[currentrow])
+		print ("not present / borke")
 		currentrow += 1
 		continue
