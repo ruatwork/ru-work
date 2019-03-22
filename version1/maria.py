@@ -27,7 +27,7 @@ with open("present.txt", "r") as presenttext:
 conn = mysql.connector.connect(host='localhost',
 database='timestamp',
 user='admin',
-password='your_pw')
+password='passu')
 
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
@@ -43,7 +43,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
-	if any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 0):
+	if checklist[currentrow] in presentlist and (record is 0):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
 		print ("present")
@@ -60,7 +60,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		print (sql_present)
 		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 1):
+	elif checklist[currentrow] not in  presentlist and (record is 1):
 		print (currentrow)
 		print (checklist[currentrow])
 		print ("absent")
@@ -77,8 +77,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		print (sql_absent)
 		continue
 
-	elif any(map(lambda each: each not in checklist[currentrow], presentlist)) and (record is 0):
-	#or any(map(lambda each: each in checklist[currentrow], presentlist)) and (record is 1):
+	elif checklist[currentrow] not in presentlist and (record is 0) or checklist[currentrow] in presentlist and (record is 1):
 		print ("not writing")
 		currentrow += 1
 		continue
