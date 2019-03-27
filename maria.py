@@ -8,13 +8,14 @@
 
 # compare checklist MAC addresses to the currently connected present.txt, then send data to database accordingly
 
-
+## Open connection to MariaDB database
 import mysql.connector
 from mysql.connector import Error
 
 lastrow = (len(list(open("checklist.txt")))) #get the number of rows in checklist.txt
 currentrow = 0 #start from first row
 
+## Make a list from the scan results and the file containing known MAC-addresses
 with open("checklist.txt", "r") as checktext: # make checklist.txt into list
 	checklist = [item.strip()
 		for item in checktext]
@@ -23,7 +24,7 @@ with open("present.txt", "r") as presenttext:
 	presentlist = [item.strip()
 		for item in presenttext]
 
-
+## Log in to MariaDB database
 conn = mysql.connector.connect(host='localhost',
 database='timestamp',
 user='admin',
@@ -43,6 +44,8 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
 
+
+## Check if MAC-address is found in present list and its record in database is 0, if true, write 1 in the present column in the database, to change status to present
 	if checklist[currentrow] in presentlist and (record is 0):
 		print (currentrow)
 		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
@@ -59,7 +62,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		currentrow += 1 #proceed to next row
 		print (sql_present)
 		continue
-
+## Check if MAC-address is not in present list and its database record is 1, if true, then write 0 in the present column in the database, to change status to absent
 	elif checklist[currentrow] not in  presentlist and (record is 1):
 		print (currentrow)
 		print (checklist[currentrow])
@@ -76,18 +79,21 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		currentrow += 1
 		print (sql_absent)
 		continue
-
+## If  MAC is found in present list and its record is 1  or it is not found and its record is 0 do nothing :)))
 	elif checklist[currentrow] not in presentlist and (record is 0) or checklist[currentrow] in presentlist and (record is 1):
 		print ("not writing")
 		currentrow += 1
 		continue
 
+## IF somethings not working properly
 	else:
 		print("ERROR!! I am the brake :D")
 		cursor.close()
 		conn.close()
 		currentrow += 1
 		continue
+
+## Close MariaDB connection
 cursor.close()
 conn.close()
 
