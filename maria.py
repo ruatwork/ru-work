@@ -36,10 +36,10 @@ password='passu')
 while (currentrow <= lastrow -1): #while we're not past the last row
 
 	try:
-		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1"
+		sql_read = "SELECT present FROM " + checklist[currentrow] + " ORDER BY id DESC LIMIT 1" # get current item
 		cursor = conn.cursor(buffered=True)
 		cursor.execute(sql_read)
-		record, = cursor.fetchone()
+		record, = cursor.fetchone() # Only fetch one result, notice the use of ","
 
 	except Error as e :
 		print ("Error while connecting to MySQL", e)
@@ -48,20 +48,21 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 ## Check if MAC-address is found in present list and its record in database is 0, if true, write 1 in the present column in the database, to change status to present
 	if checklist[currentrow] in presentlist and (record is 0):
 		print (currentrow)
-		print (checklist[currentrow]) #print the item from the list that is in the current position (0,1,2,3,4)
+		print (checklist[currentrow])
 		print ("present")
 
-		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)"
+		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)" #is present
 
 		try:
 			cursor.execute(sql_present)
 		except Error as e :
 			print("Error: {}".format(error))
-		conn.commit()
+		conn.commit() # commit the mariadb writing
 
 		currentrow += 1 #proceed to next row
 		print (sql_present)
-		continue
+		continue # start the loop from the start with a new "currentrow"
+		
 ## Check if MAC-address is not in present list and its database record is 1, if true, then write 0 in the present column in the database, to change status to absent
 	elif checklist[currentrow] not in  presentlist and (record is 1):
 		print (currentrow)
@@ -79,6 +80,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		currentrow += 1
 		print (sql_absent)
 		continue
+		
 ## If  MAC is found in present list and its record is 1  or it is not found and its record is 0 do nothing :)))
 	elif checklist[currentrow] not in presentlist and (record is 0) or checklist[currentrow] in presentlist and (record is 1):
 		print ("not writing")
@@ -96,14 +98,3 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 ## Close MariaDB connection
 cursor.close()
 conn.close()
-
-# while we're not past the last row:
-	# check if currentrow's item is in present.txt
-		# if it is, and the last entry in the database is not "present"
-			# write to the database that the MAC is present. MAC, present, datetime
-			# move to next currentrow
-
-	# else if however currentrow's item is NOT in present.txt
-		# and database's last entry is not "absent"
-			# write to the database that the MAC is absent. MAC, absent, datetime
-# move to next currentrow
