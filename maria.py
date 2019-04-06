@@ -12,15 +12,15 @@
 import mysql.connector
 from mysql.connector import Error
 
-lastrow = (len(list(open("checklist.txt")))) #get the number of rows in checklist.txt
+lastrow = (len(list(open("/home/$USER/ru-work/checklist.txt")))) #get the number of rows in checklist.txt
 currentrow = 0 #start from first row
 
 ## Make a list from the scan results and the file containing known MAC-addresses
-with open("checklist.txt", "r") as checktext: # make checklist.txt into list
+with open("/home/$USER/ru-work/checklist.txt", "r") as checktext: # make checklist.txt into list
 	checklist = [item.strip()
 		for item in checktext]
 
-with open("present.txt", "r") as presenttext:
+with open("/home/$USER/ru-work/present.txt", "r") as presenttext:
 	presentlist = [item.strip()
 		for item in presenttext]
 
