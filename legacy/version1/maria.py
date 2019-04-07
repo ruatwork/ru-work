@@ -12,14 +12,14 @@
 import mysql.connector
 from mysql.connector import Error
 
-lastrow = (len(list(open("checklist.txt")))) #get the number of rows in checklist.txt
+lastrow = (len(list(open("/home/vili/ru-work/legacy/version1/checklist.txt")))) #get the number of rows in checklist.txt
 currentrow = 0 #start from first row
 
-with open("checklist.txt", "r") as checktext: # make checklist.txt into list
+with open("/home/vili/ru-work/legacy/version1/checklist.txt", "r") as checktext: # make checklist.txt into list
 	checklist = [item.strip()
 		for item in checktext]
 
-with open("present.txt", "r") as presenttext:
+with open("/home/vili/ru-work/legacy/version1/present.txt", "r") as presenttext:
 	presentlist = [item.strip()
 		for item in presenttext]
 
@@ -27,7 +27,7 @@ with open("present.txt", "r") as presenttext:
 conn = mysql.connector.connect(host='localhost',
 database='timestamp',
 user='admin',
-password='passu')
+password='yourpw')
 
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
