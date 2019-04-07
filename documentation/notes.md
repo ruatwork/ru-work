@@ -26,3 +26,9 @@ Our test database was 0.03 MB and had one table with 9 rows.
 The program is planned to make 288 scans per day, and if we use the same size average per row it comes out as 1MB per day.
 Our current server resources are 1TB of data transfer/month and we've allocated atleast 10GB for the database.
 In other words the cheapest vps from DigitalOcean should be more than enough for the project!
+
+### Incrontab
+
+- chmod a+x ../maria.py
+- absolute paths to files in maria.py
+- <FILE TO WATCH> IN_MODIFY /usr/bin/python3 <PATH TO maria.py>
