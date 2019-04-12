@@ -47,9 +47,9 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 
 ## Check if MAC-address is found in present list and its record in database is 0, if true, write 1 in the present column in the database, to change status to present
 	if checklist[currentrow] in presentlist and (record is 'absent for'):
-		print (currentrow)
-		print (checklist[currentrow])
-		print ("present")
+#		print (currentrow)
+#		print (checklist[currentrow])
+#		print ("present")
 
 		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (present for)" #is present
 
@@ -60,14 +60,14 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit() # commit the mariadb writing
 
 		currentrow += 1 #proceed to next row
-		print (sql_present)
+#		print (sql_present)
 		continue # start the loop from the start with a new "currentrow"
 		
 ## Check if MAC-address is not in present list and its database record is 1, if true, then write 0 in the present column in the database, to change status to absent
 	elif checklist[currentrow] not in  presentlist and (record is "present for"):
-		print (currentrow)
-		print (checklist[currentrow])
-		print ("absent")
+#		print (currentrow)
+#		print (checklist[currentrow])
+#		print ("absent")
 
 		sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (absent for)"
 
@@ -78,12 +78,12 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		conn.commit()
 
 		currentrow += 1
-		print (sql_absent)
+#		print (sql_absent)
 		continue
 		
 ## If  MAC is found in present list and its record is 1  or it is not found and its record is 0 do nothing :)))
 	elif checklist[currentrow] not in presentlist and (record is "absent for") or checklist[currentrow] in presentlist and (record is "present for"):
-		print ("not writing")
+#		print ("no need to write")
 		currentrow += 1
 		continue
 
