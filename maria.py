@@ -26,9 +26,9 @@ with open("/home/$USER/ru-work/present.txt", "r") as presenttext:
 
 ## Log in to MariaDB database
 conn = mysql.connector.connect(host='localhost',
-database='pilotti',
+database='dataBase',
 user='admin',
-password='passu')
+password='passWord')
 
 # the following will be using the list made from checklist.txt. list name is checklist. there are no real "rows",
 # but the variable currentrow is used to go through the list items one by one.
@@ -46,12 +46,12 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 
 
 ## Check if MAC-address is found in present list and its record in database is 0, if true, write 1 in the present column in the database, to change status to present
-	if checklist[currentrow] in presentlist and (record is 'absent for'):
+	if checklist[currentrow] in presentlist and (record is 0):
 #		print (currentrow)
 #		print (checklist[currentrow])
 #		print ("present")
 
-		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (present for)" #is present
+		sql_present = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (1)" #is present
 
 		try:
 			cursor.execute(sql_present)
@@ -64,12 +64,12 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		continue # start the loop from the start with a new "currentrow"
 		
 ## Check if MAC-address is not in present list and its database record is 1, if true, then write 0 in the present column in the database, to change status to absent
-	elif checklist[currentrow] not in  presentlist and (record is "present for"):
+	elif checklist[currentrow] not in  presentlist and (record is 1):
 #		print (currentrow)
 #		print (checklist[currentrow])
 #		print ("absent")
 
-		sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (absent for)"
+		sql_absent = "INSERT INTO " + checklist[currentrow] + " (present) VALUES (0)"
 
 		try:
 			cursor.execute(sql_absent)
@@ -82,7 +82,7 @@ while (currentrow <= lastrow -1): #while we're not past the last row
 		continue
 		
 ## If  MAC is found in present list and its record is 1  or it is not found and its record is 0 do nothing :)))
-	elif checklist[currentrow] not in presentlist and (record is "absent for") or checklist[currentrow] in presentlist and (record is "present for"):
+	elif checklist[currentrow] not in presentlist and (record is 0) or checklist[currentrow] in presentlist and (record is 1):
 #		print ("no need to write")
 		currentrow += 1
 		continue
